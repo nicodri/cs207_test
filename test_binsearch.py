@@ -14,11 +14,10 @@ class binary_search_test(unittest.TestCase):
         self.assertEqual(binary_search(mylist, 5), 3)
         self.assertEqual(binary_search(mylist, 7), 5)
 
-    def test_inf(self):
+    def test_special_value(self):
+        self.assertEqual(binary_search([], 100), -1)
         self.assertEqual(binary_search([1, 2, np.inf], 2), 1)
         self.assertEqual(binary_search([1, 2, np.inf], np.inf), 2)
-        
-    def test_nan(self):
         with self.assertRaises(ValueError):
             self.assertEqual(binary_search([1, 2, 3], np.nan))
     
